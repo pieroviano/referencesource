@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>7.3</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>System.ComponentModel</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\mscorlib\system\threading\volatile.cs" Link="volatile.cs" />
+    <Compile Include="..\..\..\InternalApis\Clr\inc\LocalAppContext.cs" Link="LocalAppContext.cs" />
+    <Compile Include="..\..\..\misc\externdll.cs" Link="externdll.cs" />
+    <Compile Include="..\..\..\misc\WeakHashtable.cs" Link="WeakHashtable.cs" />
+    <Compile Include="..\..\..\sys\LocalAppContextSwitches.cs" Link="LocalAppContextSwitches.cs" />
+    <Compile Include="..\..\microsoft\win32\SafeNativeMethods.cs" Link="SafeNativeMethods.cs" />
+    <Compile Update="BackgroundWorker.cs" />
+    <Compile Update="Component.cs" />
+    <Compile Update="MarshalByValueComponent.cs" />
+  </ItemGroup>
+</Project>

@@ -15,7 +15,9 @@
 namespace System.ComponentModel {
     using System.Runtime.Serialization.Formatters;
     using System.Threading;
+#if !NETSTANDARD
     using System.Runtime.Remoting.Activation;
+#endif
     using System.Runtime.InteropServices;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;

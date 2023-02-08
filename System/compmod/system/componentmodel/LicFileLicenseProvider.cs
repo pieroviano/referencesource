@@ -11,7 +11,9 @@ namespace System.ComponentModel {
     using System.Globalization;
     using System.IO;
     using System.Reflection;
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Security.Permissions;
 
     /// <include file='doc\LicFileLicenseProvider.uex' path='docs/doc[@for="LicFileLicenseProvider"]/*' />

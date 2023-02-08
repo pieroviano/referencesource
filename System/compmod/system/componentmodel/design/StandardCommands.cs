@@ -10,7 +10,9 @@ namespace System.ComponentModel.Design {
     using System;
     using System.ComponentModel;
     using System.Diagnostics;
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Security.Permissions;
     using System.Threading;
 

@@ -5,8 +5,10 @@
 //------------------------------------------------------------------------------
 
 namespace System.ComponentModel {
+#if !NETSTANDARD
     using System.Runtime.Remoting.Activation;
     using System.Runtime.Remoting;
+#endif
     using System.Runtime.InteropServices;
     using System.Reflection;
     using System.Diagnostics;

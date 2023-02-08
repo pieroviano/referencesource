@@ -5,7 +5,9 @@
 //------------------------------------------------------------------------------
 
 namespace System.ComponentModel.Design {
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Diagnostics;
     using System;
     using Microsoft.Win32;
@@ -90,22 +92,30 @@ namespace System.ComponentModel.Design {
 
                 if (resourceAssembly == null) {
                     Debug.WriteLineIf(RuntimeLicenseContextSwitch.TraceVerbose,"resourceAssembly is null");
+#if !NETSTANDARD
                     string rawFile = (string)AppDomain.CurrentDomain.SetupInformation.LicenseFile;
                     Debug.WriteLineIf(RuntimeLicenseContextSwitch.TraceVerbose,"rawfile: " + rawFile);
+
+#endif
                     string codeBase;
                     
                     // FileIOPermission is required for ApplicationBase in URL-hosted domains
                     FileIOPermission perm = new FileIOPermission(PermissionState.Unrestricted);
                     perm.Assert();
                     try {
+#if !NETSTANDARD
                         codeBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+#endif
                     }
                     finally {
                         CodeAccessPermission.RevertAssert();
                     }
+#if !NETSTANDARD
                     if (rawFile != null && codeBase != null) {
                         licenseFile = new Uri(new Uri(codeBase), rawFile);
                     }
+
+#endif
                 }
 
                 if (licenseFile == null) {

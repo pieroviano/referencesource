@@ -12,7 +12,9 @@ namespace System.ComponentModel {
     using System;
     using System.Diagnostics;
     using System.Runtime.InteropServices;
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Runtime.Serialization;
     using System.Security;
     using System.Security.Permissions;

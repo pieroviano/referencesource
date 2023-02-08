@@ -8,7 +8,9 @@ namespace System.ComponentModel {
     using System.Configuration.Assemblies;
     using System.Diagnostics;
     using System.Runtime.InteropServices;
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Runtime.Serialization.Formatters;
     using System.Security.Permissions;
     using System.Threading;

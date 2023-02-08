@@ -8,7 +8,9 @@ namespace System.ComponentModel {
     using Microsoft.Win32;
     using System;
     using System.Diagnostics;
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Security.Permissions;
 
     /// <include file='doc\LicenseProvider.uex' path='docs/doc[@for="LicenseProvider"]/*' />

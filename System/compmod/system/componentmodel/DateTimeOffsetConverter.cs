@@ -18,7 +18,9 @@ namespace System.ComponentModel {
     using System.Globalization;
     using System.Reflection;
     using System.Runtime.InteropServices;
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Runtime.Serialization.Formatters;
     using System.Security.Permissions;
 

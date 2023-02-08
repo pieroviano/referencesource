@@ -7,7 +7,9 @@
 /*
  */
 namespace System.ComponentModel.Design {
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.ComponentModel;
 
     using System.Diagnostics;

@@ -10,7 +10,9 @@ namespace System.ComponentModel
 {
     using System.Runtime.Serialization.Formatters;
     using System.Threading;
+#if !NETSTANDARD
     using System.Runtime.Remoting.Activation;
+#endif
     using System.Runtime.InteropServices;
     using System.Diagnostics;
     using System;
@@ -368,11 +370,14 @@ namespace System.ComponentModel
 
             PermissionSet typeDescriptorPermission = new PermissionSet(PermissionState.None);
             typeDescriptorPermission.AddPermission(new TypeDescriptorPermission(TypeDescriptorPermissionFlags.RestrictedRegistrationAccess));
-
+#if !NETSTANDARD
             PermissionSet targetPermissions = type.Assembly.PermissionSet;
             targetPermissions = targetPermissions.Union(typeDescriptorPermission);
 
             targetPermissions.Demand();
+#endif
+
+            
 
             AddProvider(provider, type);
         }
@@ -407,10 +412,12 @@ namespace System.ComponentModel
             PermissionSet typeDescriptorPermission = new PermissionSet(PermissionState.None);
             typeDescriptorPermission.AddPermission(new TypeDescriptorPermission(TypeDescriptorPermissionFlags.RestrictedRegistrationAccess));
 
+#if !NETSTANDARD
             PermissionSet targetPermissions = type.Assembly.PermissionSet;
             targetPermissions = targetPermissions.Union(typeDescriptorPermission);
 
             targetPermissions.Demand();
+#endif
 
             AddProvider(provider, instance);
         }
@@ -3244,10 +3251,12 @@ namespace System.ComponentModel
             PermissionSet typeDescriptorPermission = new PermissionSet(PermissionState.None);
             typeDescriptorPermission.AddPermission(new TypeDescriptorPermission(TypeDescriptorPermissionFlags.RestrictedRegistrationAccess));
 
+#if !NETSTANDARD
             PermissionSet targetPermissions = type.Assembly.PermissionSet;
             targetPermissions = targetPermissions.Union(typeDescriptorPermission);
 
             targetPermissions.Demand();
+#endif
 
             RemoveProvider(provider, type);
         }
@@ -3281,10 +3290,12 @@ namespace System.ComponentModel
             PermissionSet typeDescriptorPermission = new PermissionSet(PermissionState.None);
             typeDescriptorPermission.AddPermission(new TypeDescriptorPermission(TypeDescriptorPermissionFlags.RestrictedRegistrationAccess));
 
+#if !NETSTANDARD
             PermissionSet targetPermissions = type.Assembly.PermissionSet;
             targetPermissions = targetPermissions.Union(typeDescriptorPermission);
 
             targetPermissions.Demand();
+#endif
 
             RemoveProvider(provider, instance);
         }

@@ -7,7 +7,9 @@
 /*
  */
 namespace System.ComponentModel {
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Runtime.InteropServices;
     
 

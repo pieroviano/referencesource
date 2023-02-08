@@ -5,7 +5,9 @@
 //------------------------------------------------------------------------------
 
 namespace System.ComponentModel.Design {
+#if !NETSTANDARD
     using System.Runtime.Remoting;
+#endif
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Runtime.Serialization;
     using System.Security;
